@@ -160,18 +160,9 @@ void testDisplay()
     TrieNode<string> *model = new TrieNode<string>(car, "<model>");
     TrieNode<string> *vin = new TrieNode<string>(car, "<vehicle_id_number>");
 
-    *color << "yellow";
-    *color << "brown";
-    *color << "blue";
-    *color << "green";
-    *color << "red";
-
+    *color << "yellow" << "brown" << "blue" << "green" << "red";
     *year << "2015";
-
-    *model << "Toyota Corolla";
-    *model << "Lexus";
-    *model << "Mercedes Benz";
-    
+    *model << "Toyota Corolla" << "Lexus" << "Mercedes Benz";
     *vin << "123";
 
     cout << "\n*************** Result of testDisplay(): ***************\n\n" << *car;

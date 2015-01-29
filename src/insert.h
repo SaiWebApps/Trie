@@ -18,27 +18,26 @@ template<class T> bool TrieNode<T>::addChild(TrieNode<T> *child)
 }
 
 /**
- * Add the given Trie as a child to this Trie. Return true if the
- * insertion was successful and false otherwise.
+ * Add the given Trie as a child to this Trie. Return a reference to 
+ * the modified Trie.
  */
-template<class T> bool TrieNode<T>::operator<<(TrieNode &child)
+template<class T> TrieNode<T> &TrieNode<T>::operator<<(TrieNode &child)
 {
-	return this->addChild(&child);
+	this->addChild(&child);
+	return *this;
 }
 
 /**
  * Same as operator<<, except value is wrapped into a new TrieNode first.
  */
-template<class T> bool TrieNode<T>::operator<<(T value)
+template<class T> TrieNode<T> &TrieNode<T>::operator<<(T value)
 {
 	TrieNode<T> *newChild = new TrieNode<T>(value);
-
-	// If insertion failed, delete newChild and return false.
+	// If insertion failed, delete newChild. 
 	if (!this->addChild(newChild)) {
 		delete newChild;
-		return false;
 	}
-	return true;
+	return *this;
 }
 
 #endif // SRC_INSERT_H

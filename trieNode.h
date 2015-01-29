@@ -21,7 +21,6 @@ private:
 
     // helper methods
     bool equals(TrieNode &other);
-    bool addChild(TrieNode *child);
 	TrieNode *removeChild(T value);
     void merge(TrieNode &other);
 
@@ -56,8 +55,9 @@ public:
     TrieNode *clone();
 
     // Insertions
-    bool operator<<(TrieNode &child);
-    bool operator<<(T value);
+    bool addChild(TrieNode *child);
+    TrieNode &operator<<(TrieNode &child);
+    TrieNode &operator<<(T value);
 
     // Deletions
 	TrieNode *operator>>(TrieNode &child);
